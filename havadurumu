@@ -1,0 +1,50 @@
+#!/usr/bin/env/python
+import feedparser
+def yarin():
+	parse = feedparser.parse("http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&locCode=Eur|TR|74100|BARTIN|")
+	parse = parse["entries"] [1] ["summary"]
+	parse = parse.split()
+	
+	if(parse[6] or parse[7] or parse[8] or parse[9] == "Rain") or (parse[6] or parse[7] or parse[8] or parse[9] == "Shower"):
+		print("Yarın Hava Yağmurlu")
+	
+	return (yarin)
+
+
+
+
+def bugun():
+	parse = feedparser.parse("http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&locCode=Eur|TR|74100|BARTIN|")
+	parse = parse["entries"] [0] ["summary"]
+	parse = parse.split()
+	
+	if(parse[4] or parse[5] or parse[6] or parse[7] == "Rain") or (parse[4] or parse[5] or parse[6] or parse[7] == "Shower"):
+		print("Bugün Hava Yağmurlu")
+	
+	return (bugun)
+
+
+
+def yarin1():
+	parse = feedparser.parse("http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&locCode=Eur|TR|74100|BARTIN|")
+	parse = parse["entries"] [1] ["summary"]
+	parse = parse.split()
+	
+	print("Bugün= " + parse[0],parse[1],parse[2],parse[3],parse[4],parse[5])
+	
+	return (yarin1)
+
+
+
+def ertesi():
+	parse = feedparser.parse("http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&locCode=Eur|TR|74100|BARTIN|")
+	parse = parse["entries"] [2] ["summary"]
+	parse = parse.split()
+	
+	print("Yarın= " + parse[0],parse[1],parse[2],parse[3],parse[4],parse[5])
+	
+	return (ertesi)
+yarin1()
+ertesi()
+bugun()
+yarin()
